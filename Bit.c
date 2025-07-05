@@ -33,9 +33,10 @@ int main() {
       if (load(&bit)) {
         return 1;
       }
-    } else if (!strcmp(command, "quit")) {
+    } else if (!strcmp(command, "q")) {
       printf("Do you want to save (y/n): " );
       fgets(command, sizeof(command), stdin);
+      command[strcspn(command, "\n")] = '\0';
       if (!strcmp(command, "y")) {
         save(bit);
       } else if (!strcmp(command, "n")) {
